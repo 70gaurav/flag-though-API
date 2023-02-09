@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -15,8 +18,14 @@
             <input type="text" placeholder="enter country name">
             <button>Get flag</button>
         </div>
-        <div class="flag">
-            <img src="" alt="">
+        <div class="box">
+            <div class="flag">
+                <img src="" alt="">
+            
+                <h1></h1>
+            </div>
+           
+            
         </div>
     </div>
 
@@ -28,6 +37,8 @@
         let input = document.querySelector("input")
         let image = document.querySelector("img")
         let value = document.querySelector('input.value')
+        let country = document.querySelector("h1")
+        let cover = document.querySelector(".flag")
 
         function getflag() {
             fetch("https://flagcdn.com/en/codes.json")
@@ -43,9 +54,11 @@
             
             for (let i in data) {
                 if (input.value === data[i]) {
+                    cover.style.display="block"
                     console.log(data[i])
                     console.log([i])
                     image.src = "https://flagcdn.com/160x120/" + [i] + ".png"
+                    country.innerHTML = data[i]
                 }
             }
         }
