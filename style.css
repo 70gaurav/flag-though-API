@@ -33,4 +33,17 @@ button{
     width: 50px;
     
 }
+@media all and (max-width: 850px){
+    .box,.flag{
+        width: 300px;
+        height: 300px;
+    }
+    
+}
+@media all and (max-width: 650px){
+    .wrapper{
+        display: block;
+    }
+    
+}
 
