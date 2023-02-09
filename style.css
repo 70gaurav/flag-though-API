@@ -42,7 +42,8 @@ button{
 }
 @media all and (max-width: 650px){
     .wrapper{
-        display: block;
+        
+        flex-direction: column;
     }
     
 }
