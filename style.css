@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper{
+     background: linear-gradient(to right, #c02425, #f0cb35);
+     height:100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+
+}
+.box,.flag{
+    width: 40%;
+    border: 2px solid;
+    height: 90vh;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+input{
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    margin: 1rem;
+}
+button{
+    height: 30px;
+    width: 50px;
+    
+}
+
