@@ -15,7 +15,7 @@
 <body>
     <div class="wrapper">
         <div class="box">
-            <input type="text" placeholder="enter country name">
+            <input type="text" placeholder="enter country name" >
             <button>Get flag</button>
         </div>
         <div class="box">
@@ -40,15 +40,17 @@
         let country = document.querySelector("h1")
         let cover = document.querySelector(".flag")
 
-        function getflag() {
-            fetch("https://flagcdn.com/en/codes.json")
-                .then((response) => {
-                    return response.json()
-                })
-                .then((result) => {
-                    // console.log(result)
-                    showflag(result)
-                })
+        async function getflag() {
+           let response = await fetch("https://flagcdn.com/en/codes.json")
+           let result = await response.json()
+            showflag(result)
+                // .then((response) => {
+                //     return response.json()
+                // })
+                // .then((result) => {
+                //     // console.log(result)
+                //     showflag(result)
+                // })
         }
         function showflag(data) {
             let first = input.value.charAt(0).toUpperCase() + input.value.slice(1)
