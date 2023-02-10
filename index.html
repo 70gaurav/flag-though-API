@@ -23,6 +23,7 @@
                 <img src="" alt="">
 
                 <h1></h1>
+                <h2 class="error">sorry,u have entered a wrong country name</h2>
             </div>
 
 
@@ -39,6 +40,7 @@
         // let value = document.querySelector('input.value')
         let country = document.querySelector("h1")
         let cover = document.querySelector(".flag")
+        let error = document.querySelector(".error")
 
         async function getflag() {
            let response = await fetch("https://flagcdn.com/en/codes.json")
@@ -53,18 +55,20 @@
                 // })
         }
         function showflag(data) {
-            let first = input.value.charAt(0).toUpperCase() + input.value.slice(1)
+            let first = input.value.toLowerCase()
             for (let i in data) {
-                if (first === data[i]) {
+                let second = data[i].toLowerCase()
+                if (first === second) {
                     cover.style.display = "block"
-                    console.log(data[i])
-                    console.log([i])
+                    // console.log(data[i])
+                    // console.log([i])
                     image.src = "https://flagcdn.com/160x120/" + [i] + ".png"
                     country.innerHTML = data[i]
                 }
             }
-        }
-
+                    
+                
+            }
         btn.onclick = () => {
             getflag()
         }
