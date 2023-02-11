@@ -12,7 +12,7 @@
      align-items: center;
 
 }
-.box{
+.box1,.box2{
     width: 40%;
     border: 2px solid;
     height: 90vh;
@@ -21,6 +21,12 @@
     justify-content: center;
     align-items: center;
     border-radius: 20px;
+}
+.box1{
+    animation: box 1 ease-out 1s  ;
+}
+.box2{
+    animation: box2 1 ease-out 1s;
 }
 .flag{
     display: flex;
@@ -34,13 +40,13 @@
     text-align: center;
     background: linear-gradient(to right, #c02425, #f0cb35);
     box-shadow: 5px 5px 5px;
+    animation: flag infinite ease-in-out 3s  ;
 }
 .flag:hover{
     transform: scale(1.1);
     transition: all 1s ease;
 }
 .error{
-    display: none;
     color: black;
 
 }
@@ -53,6 +59,7 @@ input{
     font-weight: 700;
     font-size: 22px;
     border-radius: 5px;
+    
 }
 button{
     height: 30px;
@@ -60,7 +67,42 @@ button{
     font-weight: 700;
     font-size: 22px;
     border-radius: 5px;
+   
 }
+@keyframes flag{
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes box{
+    0% {
+        transform: translateY(-600px);
+    }
+
+    100% {
+        transform: translateY(0);
+}
+}
+@keyframes box2{
+    0% {
+        transform: translateY(600px);
+    }
+
+    100% {
+        transform: translateY(0);
+}
+}
+
+
+
 @media all and (max-width: 850px){
     .box{
         width: 300px;

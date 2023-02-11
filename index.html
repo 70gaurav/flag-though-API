@@ -14,16 +14,16 @@
 
 <body>
     <div class="wrapper">
-        <div class="box">
+        <div class="box1">
             <input type="text" placeholder="enter country name" >
             <button>Get flag</button>
         </div>
-        <div class="box">
+        <div class="box2">
             <div class="flag">
                 <img src="" alt="">
 
                 <h1></h1>
-                <h2 class="error">sorry,u have entered a wrong country name</h2>
+                <h2 class="error"></h2>
             </div>
 
 
@@ -55,15 +55,21 @@
                 // })
         }
         function showflag(data) {
-            let first = input.value.toLowerCase()
             for (let i in data) {
+                let first = input.value.toLowerCase()
                 let second = data[i].toLowerCase()
                 if (first === second) {
-                    cover.style.display = "block"
-                    // console.log(data[i])
-                    // console.log([i])
+                    cover.style.display="block"
                     image.src = "https://flagcdn.com/160x120/" + [i] + ".png"
                     country.innerHTML = data[i]
+                    error.style.display="none"
+                    
+                }
+                else{
+                    cover.style.display="block"
+                    error.innerHTML ="sorry,u have entered a wrong country name"
+                   
+                    
                 }
             }
                     
