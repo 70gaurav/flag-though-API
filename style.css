@@ -67,6 +67,8 @@ button{
     font-weight: 700;
     font-size: 22px;
     border-radius: 5px;
+    animation: btn 1 ease 2s;
+
    
 }
 @keyframes flag{
@@ -99,6 +101,17 @@ button{
     100% {
         transform: translateY(0);
 }
+}
+@keyframes btn{
+    0%{
+        transform: rotate3d(0);
+    }
+    50%{
+        transform: rotate3d(1,1,1,360deg);
+    }
+    100%{
+        transform: rotate3d(0);
+    }
 }
 
 
