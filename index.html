@@ -15,15 +15,17 @@
 <body>
     <div class="wrapper">
         <div class="box1">
-            <input type="text" placeholder="enter country name" >
-            <button>Get flag</button>
+            <form> 
+            <input type="text" placeholder="enter country name" autofocus  >
+            <button type="submit">Get flag</button>
+        </form>
         </div>
         <div class="box2">
             <div class="flag">
                 <img src="" alt="">
 
                 <h1></h1>
-                <h2 class="error"></h2>
+               
             </div>
 
 
@@ -40,42 +42,40 @@
         // let value = document.querySelector('input.value')
         let country = document.querySelector("h1")
         let cover = document.querySelector(".flag")
-        let error = document.querySelector(".error")
 
         async function getflag() {
-           let response = await fetch("https://flagcdn.com/en/codes.json")
-           let result = await response.json()
+            let response = await fetch("https://flagcdn.com/en/codes.json")
+            let result = await response.json()
             showflag(result)
-                // .then((response) => {
-                //     return response.json()
-                // })
-                // .then((result) => {
-                //     // console.log(result)
-                //     showflag(result)
-                // })
+            // .then((response) => {
+            //     return response.json()
+            // })
+            // .then((result) => {
+            //     // console.log(result)
+            //     showflag(result)
+            // })
         }
         function showflag(data) {
+            let found = false;
             for (let i in data) {
                 let first = input.value.toLowerCase()
                 let second = data[i].toLowerCase()
                 if (first === second) {
-                    cover.style.display="block"
+                    cover.style.display = "block"
                     image.src = "https://flagcdn.com/160x120/" + [i] + ".png"
                     country.innerHTML = data[i]
-                    error.style.display="none"
-                    
-                }
-                else{
-                    cover.style.display="block"
-                    error.innerHTML ="sorry,u have entered a wrong country name"
-                   
-                    
+                    error.style.display = "none"
+                    found = true
                 }
             }
-                    
-                
+            if (!found) {
+                cover.style.display = "block"
+                country.innerHTML = "Please check the name u have entered"
+                image.src = "https://dummyimage.com/160x120/000/ffffff&text=Country+not+found"
             }
-        btn.onclick = () => {
+        }
+        btn.onclick = (e) => {
+            e.preventDefault()
             getflag()
         }
 
